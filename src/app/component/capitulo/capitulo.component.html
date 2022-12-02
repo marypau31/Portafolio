@@ -1,0 +1,20 @@
+<div class="accordion accordion-flush" id="accordionCapitulo">
+    <div class="accordion-item" *ngFor="let i of capitulos">
+        <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#flush-collapse' + i.numero" aria-expanded="false" [attr.aria-controls]="'flush-collapse' + i.numero">
+                <b>{{i.numero}}.&nbsp;&nbsp;{{i.titulo}}</b>
+            </button>
+        </h2>
+        <div [attr.id]="'flush-collapse' + i.numero" class="accordion-collapse collapse" [attr.aria-labelledby]="'flush-heading' + i.numero"
+            data-bs-parent="#accordionCapitulo">
+            <div class="accordion-body">
+                <div class="text-center" *ngIf="i.imagen!= undefined">
+                    <img src="{{i.imagen}}" class="img-fluid" width="25%" height="25%">
+                </div>
+                <p *ngFor="let j of i.texto">{{j}}</p>
+                <app-subcapitulo [subCapitulos]="i.subcapitulo"></app-subcapitulo>
+            </div>
+        </div>
+    </div>
+</div>

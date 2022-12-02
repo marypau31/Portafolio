@@ -1,0 +1,4 @@
+<img src="{{introduccion.imagen}}" class="card-img-top" *ngIf="introduccion.imagen!= undefined" height="400px">
+<h1 class="card-title text-center">{{introduccion.titulo}}</h1>
+<h5 class="card-subtitle text-muted">
+    <p *ngFor="let i of introduccion.texto">{{i}}</p></h5>
